@@ -55,6 +55,25 @@ router.get('/profile/update', (req, res) => {
 	})
 });
 
+//non rest-full
+router.get('/profile/remove', (req, res) => {
+	const query = req.query
+
+	Profile.findByIdAndRemove(query.id)
+	.then(data => {
+		res.json({
+			confirmation: 'success',
+			data: 'Profile ' + query.id + ' successfully removed. '
+		})
+	})
+	.catch(err => {
+		res.json({
+			confirmation: 'fail',
+			message: err.message
+		})
+	})
+});
+
 
 
 router.get('/profile/:id', (req,res) => {
