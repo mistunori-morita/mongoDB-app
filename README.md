@@ -39,3 +39,12 @@ $ npm run build
 ## メモ
 - mongoimport --db mongo-project --collection profiles --file initial/profiles.json
 - 作ったjsonをmongoに突っ込める
+
+## turbo360
+- ログインして、Myprojectからサイトを作るしてappidとかメモ
+- ターミナルから操作
+- turbo login
+- 登録したときのメルアド、パスワード入れればログインできる
+- turbo app xxxx(ここにmyprojectで作ったappidを入れる)
+- turbo deploy
+- これでプロジェクトがデプロイされてターミナルで書かれているurlにアクセスすると使える
