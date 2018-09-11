@@ -51,9 +51,25 @@ router.get('/profile/:id', (req,res) => {
 			message: 'Profile [' + id + '] not found. '
 		})
 	})
-
-
 })
+
+router.post('/profile', (req, res) => {
+	Profile.create(req.body)
+	.then(profile => {
+		res.json({
+			confirmation: 'success',
+			data: profile
+		})
+	})
+	.catch(err => {
+		res.json({
+			confirmation: 'fail',
+			message: err.message
+		})
+	})
+})
+
+
 // router.get('/:resource/:id', (req, res) => {
 // 	res.json({
 // 		confirmation: 'success',
