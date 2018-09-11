@@ -35,3 +35,7 @@ To build for production, run build:
 $ npm run build
 ```
 
+
+## メモ
+- mongoimport --db mongo-project --collection profiles --file initial/profiles.json
+- 作ったjsonをmongoに突っ込める
