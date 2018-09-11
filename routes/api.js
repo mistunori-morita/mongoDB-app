@@ -31,8 +31,30 @@ router.get('/profile', (req, res) => {
 				message: err.message
 			})
 	})
-
 })
+
+//non rest-full
+router.get('/profile/update', (req, res) => {
+
+	const query = req.query
+	const profiledId = query.id
+	delete query['id']
+
+	Profile.findByIdAndUpdate(profiledId, query, {new:true})
+	.then(profile => {
+		res.json({
+			confirmation: 'success',
+			data: profile
+		})
+	})
+	.catch(err => {
+		res.json({
+			confirmation: 'fail',
+			message: err.message
+		})
+	})
+});
+
 
 
 router.get('/profile/:id', (req,res) => {
@@ -68,7 +90,6 @@ router.post('/profile', (req, res) => {
 		})
 	})
 })
-
 
 // router.get('/:resource/:id', (req, res) => {
 // 	res.json({
